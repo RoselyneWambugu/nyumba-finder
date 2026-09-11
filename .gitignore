@@ -1,0 +1,14 @@
+node_modules/
+.expo/
+dist/
+web-build/
+*.log
+.env
+.env.local
+ios/
+android/
+.DS_Store
+*.p12
+*.mobileprovision
+*.orig.*
+.metro-health-check*

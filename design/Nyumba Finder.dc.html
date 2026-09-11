@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:oklch(0.93 0.006 60);}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(80,160,120,0.5);}70%{box-shadow:0 0 0 7px rgba(80,160,120,0);}100%{box-shadow:0 0 0 0 rgba(80,160,120,0);}}
+a{color:oklch(0.42 0.07 185);}
+a:hover{color:oklch(0.35 0.08 185);}
+</style>
+</helmet>
+
+<div style="font-family:'Manrope',sans-serif;background:oklch(0.93 0.006 60);min-height:100vh;padding:56px 40px 100px;box-sizing:border-box;">
+
+  <div style="max-width:880px;margin:0 0 48px;">
+    <div style="font-size:14px;font-weight:700;letter-spacing:0.06em;color:oklch(0.42 0.07 185);text-transform:uppercase;">Nyumba Finder</div>
+    <div style="font-size:32px;font-weight:800;color:oklch(0.22 0.015 50);margin-top:6px;">Mobile app screens</div>
+    <div style="font-size:15px;color:oklch(0.52 0.012 50);margin-top:8px;max-width:620px;line-height:1.5;">Peer-to-peer apartment listings for Kenya — tenants list the units they're leaving, tenants who lived there review them, and live availability replaces stale ads.</div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start;">
+
+    <!-- ONBOARDING 1 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Onboarding 1">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Onboarding · 1 of 3</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="height:460px;margin:0 24px;border-radius:24px;background:repeating-linear-gradient(45deg, oklch(0.9 0.03 185), oklch(0.9 0.03 185) 12px, oklch(0.85 0.035 185) 12px, oklch(0.85 0.035 185) 24px);display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:monospace;font-size:12px;color:oklch(0.3 0.05 185);background:oklch(0.975 0.006 60 / 0.85);padding:6px 12px;border-radius:8px;">tenant review illustration</div>
+        </div>
+        <div style="padding:36px 28px 0;text-align:center;">
+          <div style="font-size:24px;font-weight:800;color:oklch(0.22 0.015 50);line-height:1.3;">Real reviews from real tenants.</div>
+          <div style="font-size:14px;color:oklch(0.52 0.012 50);margin-top:10px;line-height:1.55;">No agent spin. Ratings on the caretaker, repairs, electricity and water come from people who actually lived there.</div>
+        </div>
+        <div style="position:absolute;bottom:56px;left:0;right:0;display:flex;justify-content:center;gap:6px;">
+          <div style="width:20px;height:6px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+          <div style="width:6px;height:6px;border-radius:3px;background:oklch(0.85 0.01 50);"></div>
+          <div style="width:6px;height:6px;border-radius:3px;background:oklch(0.85 0.01 50);"></div>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:34px;display:flex;align-items:center;justify-content:center;"><div style="width:120px;height:5px;border-radius:3px;background:oklch(0.22 0.015 50 / 0.3);"></div></div>
+      </div>
+    </div>
+
+    <!-- ONBOARDING 2 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Onboarding 2">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Onboarding · 2 of 3</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="height:460px;margin:0 24px;border-radius:24px;background:repeating-linear-gradient(45deg, oklch(0.9 0.06 150), oklch(0.9 0.06 150) 12px, oklch(0.85 0.07 150) 12px, oklch(0.85 0.07 150) 24px);display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:monospace;font-size:12px;color:oklch(0.3 0.08 150);background:oklch(0.975 0.006 60 / 0.85);padding:6px 12px;border-radius:8px;">live availability illustration</div>
+        </div>
+        <div style="padding:36px 28px 0;text-align:center;">
+          <div style="font-size:24px;font-weight:800;color:oklch(0.22 0.015 50);line-height:1.3;">Know before you move in.</div>
+          <div style="font-size:14px;color:oklch(0.52 0.012 50);margin-top:10px;line-height:1.55;">See if rent, deposits, water and power have been fair — and whether the unit is actually free right now.</div>
+        </div>
+        <div style="position:absolute;bottom:56px;left:0;right:0;display:flex;justify-content:center;gap:6px;">
+          <div style="width:6px;height:6px;border-radius:3px;background:oklch(0.85 0.01 50);"></div>
+          <div style="width:20px;height:6px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+          <div style="width:6px;height:6px;border-radius:3px;background:oklch(0.85 0.01 50);"></div>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:34px;display:flex;align-items:center;justify-content:center;"><div style="width:120px;height:5px;border-radius:3px;background:oklch(0.22 0.015 50 / 0.3);"></div></div>
+      </div>
+    </div>
+
+    <!-- ONBOARDING 3 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Onboarding 3">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Onboarding · 3 of 3</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="height:400px;margin:0 24px;border-radius:24px;background:repeating-linear-gradient(45deg, oklch(0.9 0.02 70), oklch(0.9 0.02 70) 12px, oklch(0.84 0.03 70) 12px, oklch(0.84 0.03 70) 24px);display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:monospace;font-size:12px;color:oklch(0.35 0.04 70);background:oklch(0.975 0.006 60 / 0.85);padding:6px 12px;border-radius:8px;">post-a-listing illustration</div>
+        </div>
+        <div style="padding:28px 28px 0;text-align:center;">
+          <div style="font-size:24px;font-weight:800;color:oklch(0.22 0.015 50);line-height:1.3;">List your old place in minutes.</div>
+          <div style="font-size:14px;color:oklch(0.52 0.012 50);margin-top:10px;line-height:1.55;">Moving out? Help the next tenant find it — and get paid nothing, it's free to post.</div>
+        </div>
+        <div style="position:absolute;bottom:64px;left:28px;right:28px;">
+          <div style="background:oklch(0.42 0.07 185);color:white;border-radius:14px;padding:15px;text-align:center;font-size:15px;font-weight:700;">Get started</div>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:34px;display:flex;align-items:center;justify-content:center;"><div style="width:120px;height:5px;border-radius:3px;background:oklch(0.22 0.015 50 / 0.3);"></div></div>
+      </div>
+    </div>
+
+    <!-- SIGN UP / LOGIN -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Sign Up / Login">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Sign up / Log in</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:28px 28px 0;">
+          <div style="font-size:26px;font-weight:800;color:oklch(0.22 0.015 50);">Welcome</div>
+          <div style="font-size:14px;color:oklch(0.52 0.012 50);margin-top:6px;">Sign up or log in to browse listings and post your own.</div>
+          <div style="display:flex;margin-top:26px;background:oklch(0.9 0.01 50);border-radius:12px;padding:4px;">
+            <div style="flex:1;text-align:center;padding:10px 0;background:oklch(0.995 0.003 60);border-radius:9px;font-size:14px;font-weight:700;color:oklch(0.22 0.015 50);">Sign up</div>
+            <div style="flex:1;text-align:center;padding:10px 0;font-size:14px;font-weight:600;color:oklch(0.52 0.012 50);">Log in</div>
+          </div>
+          <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px;">
+            <div>
+              <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">FULL NAME</div>
+              <div style="border:1px solid oklch(0.88 0.01 50);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.68 0.01 50);background:oklch(0.995 0.003 60);">e.g. Wanjiku Kamau</div>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">PHONE NUMBER</div>
+              <div style="border:1px solid oklch(0.88 0.01 50);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.22 0.015 50);background:oklch(0.995 0.003 60);">+254 7 __ ___ ___</div>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">EMAIL</div>
+              <div style="border:1px solid oklch(0.88 0.01 50);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.68 0.01 50);background:oklch(0.995 0.003 60);">you@email.com</div>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">PASSWORD</div>
+              <div style="border:1px solid oklch(0.88 0.01 50);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.68 0.01 50);background:oklch(0.995 0.003 60);">••••••••</div>
+            </div>
+          </div>
+          <div style="margin-top:24px;background:oklch(0.42 0.07 185);color:white;border-radius:12px;padding:15px;text-align:center;font-size:15px;font-weight:700;">Create account</div>
+          <div style="text-align:center;font-size:13px;color:oklch(0.52 0.012 50);margin-top:16px;">Already have an account? <span style="color:oklch(0.42 0.07 185);font-weight:700;">Log in</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOME / SEARCH -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Home / Search">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Home / Search</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:6px 20px 12px;flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;">
+          <div style="font-size:19px;font-weight:800;color:oklch(0.22 0.015 50);">Nairobi</div>
+          <div style="width:36px;height:36px;border-radius:18px;background:oklch(0.9 0.03 185);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:oklch(0.35 0.08 185);">WK</div>
+        </div>
+        <div style="padding:0 20px;flex:0 0 auto;">
+          <div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:12px;padding:12px 14px;font-size:14px;color:oklch(0.68 0.01 50);display:flex;align-items:center;gap:8px;">
+            <div style="width:14px;height:14px;border-radius:7px;border:2px solid oklch(0.52 0.012 50);flex:0 0 auto;"></div>
+            Search by area, e.g. Kilimani
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;padding:14px 20px 4px;flex:0 0 auto;align-items:center;">
+          <div style="background:oklch(0.42 0.07 185);color:white;border-radius:16px;padding:8px 14px;font-size:12px;font-weight:700;white-space:nowrap;">Location</div>
+          <div style="background:oklch(0.995 0.003 60);border:1px solid oklch(0.88 0.01 50);border-radius:16px;padding:8px 14px;font-size:12px;font-weight:700;color:oklch(0.22 0.015 50);white-space:nowrap;">Price</div>
+          <div style="background:oklch(0.995 0.003 60);border:1px solid oklch(0.88 0.01 50);border-radius:16px;padding:8px 14px;font-size:12px;font-weight:700;color:oklch(0.22 0.015 50);white-space:nowrap;">Bedrooms</div>
+          <div style="background:oklch(0.995 0.003 60);border:1px solid oklch(0.88 0.01 50);border-radius:16px;padding:8px 14px;font-size:12px;font-weight:700;color:oklch(0.22 0.015 50);white-space:nowrap;">Availability</div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:14px 20px;display:flex;flex-direction:column;gap:14px;">
+          <sc-for list="{{ homeListings }}" as="l" hint-placeholder-count="3">
+            <div style="background:oklch(0.995 0.003 60);border-radius:18px;border:1px solid oklch(0.9 0.008 50);">
+              <div style="height:130px;position:relative;border-radius:18px 18px 0 0;overflow:hidden;background:{{ l.photoBg }};">
+                <sc-if value="{{ l.isNew }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;top:10px;left:-6px;background:oklch(0.42 0.07 185);color:white;font-size:10.5px;font-weight:800;padding:4px 12px;letter-spacing:0.04em;transform:rotate(-6deg);box-shadow:0 3px 6px rgba(0,0,0,0.2);">NEW</div>
+                </sc-if>
+                <div onClick="{{ l.toggleSave }}" style="position:absolute;top:44px;right:8px;width:28px;height:28px;border-radius:14px;background:oklch(0.22 0.015 50 / 0.55);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                  <div style="width:13px;height:13px;border:1.5px solid {{ l.heartBorder }};background:{{ l.heartColor }};clip-path:polygon(50% 100%, 8% 45%, 8% 20%, 30% 5%, 50% 25%, 70% 5%, 92% 20%, 92% 45%);"></div>
+                </div>
+                <div style="position:absolute;top:10px;right:10px;background:oklch(0.22 0.015 50 / 0.75);color:white;font-size:13px;font-weight:800;padding:5px 10px;border-radius:8px;">{{ l.price }}</div>
+                <div style="position:absolute;bottom:10px;left:10px;display:flex;align-items:center;gap:6px;background:oklch(0.995 0.003 60 / 0.92);border-radius:20px;padding:5px 10px 5px 8px;">
+                  <div style="width:7px;height:7px;border-radius:4px;background:{{ l.dotColor }};animation:livepulse 2s infinite;"></div>
+                  <span style="font-size:11px;font-weight:700;color:oklch(0.22 0.015 50);">{{ l.availability }}</span>
+                </div>
+              </div>
+              <div style="padding:12px 14px;">
+                <div style="font-size:15px;font-weight:700;color:oklch(0.22 0.015 50);">{{ l.title }}</div>
+                <div style="font-size:12.5px;color:oklch(0.52 0.012 50);margin-top:3px;">{{ l.location }} · {{ l.beds }} bed</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="flex:0 0 auto;height:64px;border-top:1px solid oklch(0.9 0.008 50);display:flex;align-items:center;justify-content:space-around;background:oklch(0.995 0.003 60);">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:20px;height:20px;border-radius:5px;background:oklch(0.42 0.07 185);"></div><div style="font-size:10px;font-weight:700;color:oklch(0.42 0.07 185);">Home</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:20px;height:20px;border-radius:5px;background:oklch(0.75 0.01 50);"></div><div style="font-size:10px;font-weight:600;color:oklch(0.68 0.01 50);">Listings</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:20px;height:20px;border-radius:10px;background:oklch(0.75 0.01 50);"></div><div style="font-size:10px;font-weight:600;color:oklch(0.68 0.01 50);">Profile</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LISTING DETAIL -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Listing Detail">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Listing detail</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="flex:1;overflow-y:auto;">
+          <div style="height:230px;position:relative;background:repeating-linear-gradient(45deg, oklch(0.85 0.03 70), oklch(0.85 0.03 70) 12px, oklch(0.8 0.035 70) 12px, oklch(0.8 0.035 70) 24px);">
+            <div style="position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:16px;background:oklch(0.995 0.003 60 / 0.9);display:flex;align-items:center;justify-content:center;font-size:16px;color:oklch(0.22 0.015 50);">‹</div>
+            <div onClick="{{ toggleDetailSaved }}" style="position:absolute;top:14px;right:16px;width:32px;height:32px;border-radius:16px;background:oklch(0.995 0.003 60 / 0.9);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+              <div style="width:14px;height:14px;border:1.5px solid {{ detailHeartColor }};background:{{ detailHeartColor }};clip-path:polygon(50% 100%, 8% 45%, 8% 20%, 30% 5%, 50% 25%, 70% 5%, 92% 20%, 92% 45%);"></div>
+            </div>
+            <div style="position:absolute;bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:5px;"><div style="width:16px;height:5px;border-radius:3px;background:white;"></div><div style="width:5px;height:5px;border-radius:3px;background:oklch(0.995 0.003 60 / 0.5);"></div><div style="width:5px;height:5px;border-radius:3px;background:oklch(0.995 0.003 60 / 0.5);"></div></div>
+          </div>
+          <div style="padding:18px 22px 0;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              <div>
+                <div style="font-size:19px;font-weight:800;color:oklch(0.22 0.015 50);">Kilimani, 2-bed apartment</div>
+                <div style="font-size:13px;color:oklch(0.52 0.012 50);margin-top:3px;">Marigold Court, off Denis Pritt Rd</div>
+              </div>
+              <div style="font-size:19px;font-weight:800;color:oklch(0.42 0.07 185);white-space:nowrap;">KES 45k<span style="font-size:11px;color:oklch(0.52 0.012 50);font-weight:600;">/mo</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+              <div style="background:oklch(0.995 0.003 60);border:1px solid oklch(0.9 0.008 50);border-radius:12px;padding:10px;text-align:center;"><div style="font-size:14px;font-weight:800;color:oklch(0.22 0.015 50);">2</div><div style="font-size:10.5px;color:oklch(0.52 0.012 50);margin-top:2px;">Bedrooms</div></div>
+              <div style="background:oklch(0.995 0.003 60);border:1px solid oklch(0.9 0.008 50);border-radius:12px;padding:10px;text-align:center;"><div style="font-size:14px;font-weight:800;color:oklch(0.22 0.015 50);">2</div><div style="font-size:10.5px;color:oklch(0.52 0.012 50);margin-top:2px;">Bathrooms</div></div>
+              <div style="background:oklch(0.995 0.003 60);border:1px solid oklch(0.9 0.008 50);border-radius:12px;padding:10px;text-align:center;"><div style="font-size:14px;font-weight:800;color:oklch(0.22 0.015 50);">2mo</div><div style="font-size:10.5px;color:oklch(0.52 0.012 50);margin-top:2px;">Deposit</div></div>
+            </div>
+            <div style="margin-top:14px;background:oklch(0.94 0.05 150);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;">
+              <div style="width:9px;height:9px;border-radius:5px;background:oklch(0.6 0.15 150);animation:livepulse 2s infinite;flex:0 0 auto;"></div>
+              <div><div style="font-size:13.5px;font-weight:700;color:oklch(0.25 0.05 150);">Available now</div><div style="font-size:11px;color:oklch(0.4 0.05 150);margin-top:1px;">Updated 2 hours ago by the poster</div></div>
+            </div>
+            <div style="margin-top:14px;background:oklch(0.995 0.003 60);border:1px solid oklch(0.9 0.008 50);border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:32px;height:32px;border-radius:16px;background:oklch(0.9 0.03 185);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:oklch(0.35 0.08 185);flex:0 0 auto;">WK</div>
+                <div><div style="font-size:12.5px;color:oklch(0.52 0.012 50);">Posted by</div><div style="font-size:13.5px;font-weight:700;color:oklch(0.22 0.015 50);">Wanjiku Kamau</div></div>
+              </div>
+              <div style="background:oklch(0.94 0.03 185);color:oklch(0.3 0.06 185);font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:9px;white-space:nowrap;">Tip Wanjiku</div>
+            </div>
+            <div style="margin-top:22px;">
+              <div style="font-size:15px;font-weight:800;color:oklch(0.22 0.015 50);">Tenant ratings · 4.1 overall (14 reviews)</div>
+              <div style="display:flex;flex-direction:column;gap:9px;margin-top:12px;">
+                <sc-for list="{{ subRatings }}" as="r" hint-placeholder-count="5">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <div style="width:82px;font-size:12px;color:oklch(0.52 0.012 50);flex:0 0 auto;">{{ r.label }}</div>
+                    <div style="flex:1;height:6px;border-radius:3px;background:oklch(0.9 0.008 50);overflow:hidden;"><div style="height:100%;border-radius:3px;background:oklch(0.42 0.07 185);width:{{ r.pct }};"></div></div>
+                    <div style="font-size:12px;font-weight:700;color:oklch(0.22 0.015 50);width:22px;text-align:right;flex:0 0 auto;">{{ r.score }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="margin-top:12px;background:oklch(0.94 0.03 185);border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;">
+                <div style="font-size:13px;font-weight:700;color:oklch(0.3 0.06 185);">Deposit returned</div>
+                <div style="font-size:15px;font-weight:800;color:oklch(0.3 0.06 185);">78%</div>
+              </div>
+            </div>
+            <div style="margin-top:22px;">
+              <div style="font-size:15px;font-weight:800;color:oklch(0.22 0.015 50);margin-bottom:12px;">Reviews</div>
+              <sc-for list="{{ reviews }}" as="rv" hint-placeholder-count="2">
+                <div style="border-bottom:1px solid oklch(0.9 0.008 50);padding-bottom:14px;margin-bottom:14px;">
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                    <div style="display:flex;gap:8px;align-items:center;">
+                      <div style="width:30px;height:30px;border-radius:15px;background:oklch(0.9 0.03 185);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:oklch(0.35 0.08 185);">{{ rv.initials }}</div>
+                      <div><div style="font-size:13.5px;font-weight:700;color:oklch(0.22 0.015 50);">{{ rv.name }}</div><div style="font-size:11px;color:oklch(0.52 0.012 50);">Lived here {{ rv.months }}</div></div>
+                    </div>
+                    <div style="font-size:12px;font-weight:700;color:oklch(0.68 0.14 70);">★ {{ rv.rating }}</div>
+                  </div>
+                  <div style="font-size:13px;color:oklch(0.32 0.012 50);line-height:1.5;margin-top:8px;">{{ rv.comment }}</div>
+                  <div style="display:inline-block;margin-top:8px;font-size:11px;font-weight:700;padding:4px 9px;border-radius:8px;background:{{ rv.depositBg }};color:{{ rv.depositColor }};">{{ rv.depositLabel }}</div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="margin:8px 0 20px;background:{{ contactCardBg }};border-radius:16px;padding:16px;border:1px solid {{ contactCardBorder }};">
+              <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:13px;font-weight:800;color:oklch(0.25 0.06 185);margin-bottom:10px;">Caretaker &amp; agency contact</div>
+                <div style="font-size:13.5px;color:oklch(0.22 0.015 50);"><b>Caretaker — Peter:</b> 0712 345 678</div>
+                <div style="font-size:13.5px;color:oklch(0.22 0.015 50);margin-top:4px;"><b>Agency — Zuri Homes:</b> 0722 998 112</div>
+                <div onClick="{{ toggleSubscribe }}" style="margin-top:12px;font-size:12px;color:oklch(0.52 0.012 50);text-decoration:underline;cursor:pointer;">Reset demo (lock again)</div>
+              </sc-if>
+              <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:34px;height:34px;border-radius:10px;background:oklch(0.87 0.02 50);display:flex;align-items:center;justify-content:center;flex:0 0 auto;">
+                    <div style="width:14px;height:11px;border:2px solid oklch(0.4 0.012 50);border-radius:3px;position:relative;top:2px;"></div>
+                  </div>
+                  <div style="font-size:13.5px;font-weight:700;color:oklch(0.22 0.015 50);">Unlock caretaker &amp; agency contact</div>
+                </div>
+                <div style="font-size:12px;color:oklch(0.52 0.012 50);margin-top:8px;line-height:1.5;">Subscribe once for KES 250/month to see verified numbers on every listing.</div>
+                <div onClick="{{ toggleSubscribe }}" style="margin-top:12px;background:oklch(0.42 0.07 185);color:white;border-radius:11px;padding:13px;text-align:center;font-size:13.5px;font-weight:700;cursor:pointer;">Subscribe to unlock — KES 250/mo</div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEND A TIP -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Send a Tip">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Send a tip</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:8px 22px 0;flex:0 0 auto;">
+          <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:18px;color:oklch(0.22 0.015 50);">‹</div><div style="font-size:17px;font-weight:800;color:oklch(0.22 0.015 50);">Send a tip</div></div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px 22px;">
+          <div style="display:flex;align-items:center;gap:12px;background:oklch(0.995 0.003 60);border:1px solid oklch(0.9 0.008 50);border-radius:14px;padding:14px;">
+            <div style="width:40px;height:40px;border-radius:20px;background:oklch(0.9 0.03 185);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:oklch(0.35 0.08 185);flex:0 0 auto;">WK</div>
+            <div><div style="font-size:14.5px;font-weight:700;color:oklch(0.22 0.015 50);">Wanjiku Kamau</div><div style="font-size:12px;color:oklch(0.52 0.012 50);margin-top:2px;">Posted the Kilimani listing that got you in</div></div>
+          </div>
+          <div style="font-size:13px;color:oklch(0.52 0.012 50);line-height:1.5;margin-top:16px;">A small thank-you for the honest post that helped you find your place. Fully optional — 100% goes to Wanjiku, no fees.</div>
+          <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-top:22px;margin-bottom:10px;">CHOOSE AN AMOUNT</div>
+          <div style="display:flex;gap:10px;">
+            <div style="flex:1;text-align:center;padding:14px 0;border-radius:12px;border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);font-size:14px;font-weight:700;color:oklch(0.22 0.015 50);">KES 50</div>
+            <div style="flex:1;text-align:center;padding:14px 0;border-radius:12px;border:2px solid oklch(0.42 0.07 185);background:oklch(0.94 0.03 185);font-size:14px;font-weight:800;color:oklch(0.3 0.06 185);">KES 100</div>
+            <div style="flex:1;text-align:center;padding:14px 0;border-radius:12px;border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);font-size:14px;font-weight:700;color:oklch(0.22 0.015 50);">KES 200</div>
+          </div>
+          <div style="margin-top:10px;"><div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:12px;padding:13px 14px;font-size:14px;color:oklch(0.68 0.01 50);">Or enter a custom amount</div></div>
+          <div style="margin-top:22px;">
+            <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">M-PESA PHONE NUMBER</div>
+            <div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.22 0.015 50);">0712 345 678</div>
+          </div>
+        </div>
+        <div style="flex:0 0 auto;padding:16px 22px 24px;"><div style="background:oklch(0.42 0.07 185);color:white;border-radius:12px;padding:15px;text-align:center;font-size:15px;font-weight:700;">Send KES 100 tip</div></div>
+      </div>
+    </div>
+
+    <!-- ADD LISTING STEP 1 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Add Listing · Step 1">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Add listing · Step 1/4 · Basics</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:8px 22px 0;flex:0 0 auto;">
+          <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:18px;color:oklch(0.22 0.015 50);">‹</div><div style="font-size:17px;font-weight:800;color:oklch(0.22 0.015 50);">New listing</div></div>
+          <div style="display:flex;gap:6px;margin-top:14px;">
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.88 0.01 50);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.88 0.01 50);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.88 0.01 50);"></div>
+          </div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px 22px;display:flex;flex-direction:column;gap:15px;">
+          <div><div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">LISTING TITLE</div><div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.68 0.01 50);">e.g. Cosy 1-bed near Yaya Centre</div></div>
+          <div><div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">LOCATION / ESTATE</div><div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.22 0.015 50);">Kilimani</div></div>
+          <div style="display:flex;gap:12px;">
+            <div style="flex:1;"><div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">RENT / MONTH</div><div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.22 0.015 50);">KES 45,000</div></div>
+            <div style="flex:1;"><div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">DEPOSIT</div><div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.22 0.015 50);">2 months</div></div>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <div style="flex:1;">
+              <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">BEDROOMS</div>
+              <div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;"><span style="font-size:16px;color:oklch(0.52 0.012 50);">–</span><span style="font-size:14px;font-weight:700;color:oklch(0.22 0.015 50);">2</span><span style="font-size:16px;color:oklch(0.42 0.07 185);">+</span></div>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">BATHROOMS</div>
+              <div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;"><span style="font-size:16px;color:oklch(0.52 0.012 50);">–</span><span style="font-size:14px;font-weight:700;color:oklch(0.22 0.015 50);">2</span><span style="font-size:16px;color:oklch(0.42 0.07 185);">+</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="flex:0 0 auto;padding:16px 22px 24px;"><div style="background:oklch(0.42 0.07 185);color:white;border-radius:12px;padding:15px;text-align:center;font-size:15px;font-weight:700;">Continue</div></div>
+      </div>
+    </div>
+
+    <!-- ADD LISTING STEP 2 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Add Listing · Step 2">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Add listing · Step 2/4 · Photos</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:8px 22px 0;flex:0 0 auto;">
+          <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:18px;color:oklch(0.22 0.015 50);">‹</div><div style="font-size:17px;font-weight:800;color:oklch(0.22 0.015 50);">Add photos</div></div>
+          <div style="display:flex;gap:6px;margin-top:14px;">
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.88 0.01 50);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.88 0.01 50);"></div>
+          </div>
+          <div style="font-size:13px;color:oklch(0.52 0.012 50);margin-top:14px;line-height:1.5;">Photos are the main thing tenants trust — add at least 4, including the bathroom and kitchen.</div>
+        </div>
+        <div style="flex:1;padding:16px 22px;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;">
+          <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(45deg, oklch(0.88 0.02 185), oklch(0.88 0.02 185) 10px, oklch(0.83 0.025 185) 10px, oklch(0.83 0.025 185) 20px);display:flex;align-items:center;justify-content:center;"><div style="font-family:monospace;font-size:10px;color:oklch(0.3 0.05 185);background:oklch(0.995 0.003 60 / 0.85);padding:4px 8px;border-radius:6px;">living room</div></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(45deg, oklch(0.88 0.02 70), oklch(0.88 0.02 70) 10px, oklch(0.83 0.025 70) 10px, oklch(0.83 0.025 70) 20px);display:flex;align-items:center;justify-content:center;"><div style="font-family:monospace;font-size:10px;color:oklch(0.35 0.04 70);background:oklch(0.995 0.003 60 / 0.85);padding:4px 8px;border-radius:6px;">bedroom</div></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:repeating-linear-gradient(45deg, oklch(0.88 0.02 150), oklch(0.88 0.02 150) 10px, oklch(0.83 0.025 150) 10px, oklch(0.83 0.025 150) 20px);display:flex;align-items:center;justify-content:center;"><div style="font-family:monospace;font-size:10px;color:oklch(0.3 0.05 150);background:oklch(0.995 0.003 60 / 0.85);padding:4px 8px;border-radius:6px;">kitchen</div></div>
+          <div style="aspect-ratio:1;border-radius:14px;border:2px dashed oklch(0.8 0.01 50);display:flex;align-items:center;justify-content:center;"><div style="font-size:28px;color:oklch(0.68 0.01 50);">+</div></div>
+        </div>
+        <div style="flex:0 0 auto;padding:16px 22px 24px;"><div style="background:oklch(0.42 0.07 185);color:white;border-radius:12px;padding:15px;text-align:center;font-size:15px;font-weight:700;">Continue</div></div>
+      </div>
+    </div>
+
+    <!-- ADD LISTING STEP 3 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Add Listing · Step 3">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Add listing · Step 3/4 · Availability</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:8px 22px 0;flex:0 0 auto;">
+          <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:18px;color:oklch(0.22 0.015 50);">‹</div><div style="font-size:17px;font-weight:800;color:oklch(0.22 0.015 50);">Availability</div></div>
+          <div style="display:flex;gap:6px;margin-top:14px;">
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.88 0.01 50);"></div>
+          </div>
+        </div>
+        <div style="flex:1;padding:22px 22px;display:flex;flex-direction:column;gap:12px;">
+          <div style="border:2px solid oklch(0.42 0.07 185);background:oklch(0.94 0.03 185);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:18px;height:18px;border-radius:9px;border:2px solid oklch(0.42 0.07 185);flex:0 0 auto;margin-top:1px;display:flex;align-items:center;justify-content:center;"><div style="width:8px;height:8px;border-radius:4px;background:oklch(0.42 0.07 185);"></div></div>
+            <div><div style="font-size:14.5px;font-weight:700;color:oklch(0.22 0.015 50);">Already empty</div><div style="font-size:12.5px;color:oklch(0.52 0.012 50);margin-top:3px;line-height:1.5;">The unit is vacant now — tenants can move in right away.</div></div>
+          </div>
+          <div style="border:1px solid oklch(0.88 0.01 50);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:18px;height:18px;border-radius:9px;border:2px solid oklch(0.8 0.01 50);flex:0 0 auto;margin-top:1px;"></div>
+            <div><div style="font-size:14.5px;font-weight:700;color:oklch(0.22 0.015 50);">Moving out on a set date</div><div style="font-size:12.5px;color:oklch(0.52 0.012 50);margin-top:3px;line-height:1.5;">Choose the day you're handing over the keys.</div></div>
+          </div>
+          <div style="margin-top:8px;background:oklch(0.94 0.05 70);border-radius:12px;padding:12px 14px;font-size:12.5px;color:oklch(0.35 0.05 70);line-height:1.5;">You can flip this to "occupied" the moment it's taken — from My Listings, one tap.</div>
+        </div>
+        <div style="flex:0 0 auto;padding:16px 22px 24px;"><div style="background:oklch(0.42 0.07 185);color:white;border-radius:12px;padding:15px;text-align:center;font-size:15px;font-weight:700;">Continue</div></div>
+      </div>
+    </div>
+
+    <!-- ADD LISTING STEP 4 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Add Listing · Step 4">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Add listing · Step 4/4 · Contacts</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:8px 22px 0;flex:0 0 auto;">
+          <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:18px;color:oklch(0.22 0.015 50);">‹</div><div style="font-size:17px;font-weight:800;color:oklch(0.22 0.015 50);">Caretaker &amp; agency</div></div>
+          <div style="display:flex;gap:6px;margin-top:14px;">
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+            <div style="flex:1;height:5px;border-radius:3px;background:oklch(0.42 0.07 185);"></div>
+          </div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px 22px;display:flex;flex-direction:column;gap:15px;">
+          <div style="background:oklch(0.94 0.03 185);border-radius:12px;padding:12px 14px;font-size:12.5px;color:oklch(0.3 0.06 185);line-height:1.5;">This stays hidden from other tenants until they subscribe — it won't be shown publicly on the listing.</div>
+          <div><div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">CARETAKER NAME</div><div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.68 0.01 50);">e.g. Peter Mwangi</div></div>
+          <div><div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">CARETAKER PHONE</div><div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.68 0.01 50);">07__ ___ ___</div></div>
+          <div><div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">AGENCY NAME (OPTIONAL)</div><div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.68 0.01 50);">e.g. Zuri Homes</div></div>
+          <div><div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">AGENCY PHONE (OPTIONAL)</div><div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.68 0.01 50);">07__ ___ ___</div></div>
+        </div>
+        <div style="flex:0 0 auto;padding:16px 22px 24px;"><div style="background:oklch(0.42 0.07 185);color:white;border-radius:12px;padding:15px;text-align:center;font-size:15px;font-weight:700;">Publish listing</div></div>
+      </div>
+    </div>
+
+    <!-- MY LISTINGS -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="My Listings">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">My Listings</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:8px 22px 0;flex:0 0 auto;font-size:20px;font-weight:800;color:oklch(0.22 0.015 50);">My listings</div>
+        <div style="flex:1;overflow-y:auto;padding:16px 22px;display:flex;flex-direction:column;gap:16px;">
+          <div style="background:oklch(0.995 0.003 60);border:1px solid oklch(0.9 0.008 50);border-radius:18px;overflow:hidden;">
+            <div style="height:110px;background:repeating-linear-gradient(45deg, oklch(0.88 0.03 185), oklch(0.88 0.03 185) 12px, oklch(0.83 0.035 185) 12px, oklch(0.83 0.035 185) 24px);"></div>
+            <div style="padding:14px;">
+              <div style="font-size:14.5px;font-weight:700;color:oklch(0.22 0.015 50);">Kilimani, 2-bed apartment</div>
+              <div style="font-size:12px;color:oklch(0.52 0.012 50);margin-top:2px;">Last updated {{ myListingUpdated }}</div>
+              <div style="display:flex;background:oklch(0.9 0.01 50);border-radius:12px;padding:4px;margin-top:12px;">
+                <div onClick="{{ setListingEmpty }}" style="flex:1;text-align:center;padding:10px 0;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;background:{{ emptyTabBg }};color:{{ emptyTabColor }};">Still empty</div>
+                <div onClick="{{ setListingOccupied }}" style="flex:1;text-align:center;padding:10px 0;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;background:{{ occupiedTabBg }};color:{{ occupiedTabColor }};">Now occupied</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:oklch(0.995 0.003 60);border:1px solid oklch(0.9 0.008 50);border-radius:18px;overflow:hidden;">
+            <div style="height:110px;background:repeating-linear-gradient(45deg, oklch(0.88 0.02 70), oklch(0.88 0.02 70) 12px, oklch(0.83 0.025 70) 12px, oklch(0.83 0.025 70) 24px);"></div>
+            <div style="padding:14px;">
+              <div style="font-size:14.5px;font-weight:700;color:oklch(0.22 0.015 50);">Roysambu, studio</div>
+              <div style="font-size:12px;color:oklch(0.52 0.012 50);margin-top:2px;">Last updated 6 days ago</div>
+              <div style="display:flex;background:oklch(0.9 0.01 50);border-radius:12px;padding:4px;margin-top:12px;">
+                <div style="flex:1;text-align:center;padding:10px 0;border-radius:9px;font-size:13px;font-weight:700;background:oklch(0.995 0.003 60);color:oklch(0.6 0.01 50);">Still empty</div>
+                <div style="flex:1;text-align:center;padding:10px 0;border-radius:9px;font-size:13px;font-weight:700;background:oklch(0.42 0.07 185);color:white;">Now occupied</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="flex:0 0 auto;height:64px;border-top:1px solid oklch(0.9 0.008 50);display:flex;align-items:center;justify-content:space-around;background:oklch(0.995 0.003 60);">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:20px;height:20px;border-radius:5px;background:oklch(0.75 0.01 50);"></div><div style="font-size:10px;font-weight:600;color:oklch(0.68 0.01 50);">Home</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:20px;height:20px;border-radius:5px;background:oklch(0.42 0.07 185);"></div><div style="font-size:10px;font-weight:700;color:oklch(0.42 0.07 185);">Listings</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:20px;height:20px;border-radius:10px;background:oklch(0.75 0.01 50);"></div><div style="font-size:10px;font-weight:600;color:oklch(0.68 0.01 50);">Profile</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WRITE A REVIEW -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Write a Review">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Write a review</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:8px 22px 0;flex:0 0 auto;">
+          <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:18px;color:oklch(0.22 0.015 50);">‹</div><div style="font-size:17px;font-weight:800;color:oklch(0.22 0.015 50);">Write a review</div></div>
+          <div style="font-size:12.5px;color:oklch(0.52 0.012 50);margin-top:4px;">Kilimani, 2-bed apartment — Marigold Court</div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:16px 22px;display:flex;flex-direction:column;gap:16px;">
+          <sc-for list="{{ reviewSliders }}" as="s" hint-placeholder-count="5">
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="font-weight:700;color:oklch(0.22 0.015 50);">{{ s.label }}</span><span style="font-weight:700;color:oklch(0.42 0.07 185);">{{ s.value }}/5</span></div>
+              <div style="height:6px;border-radius:3px;background:oklch(0.9 0.008 50);margin-top:8px;position:relative;"><div style="height:100%;border-radius:3px;background:oklch(0.42 0.07 185);width:{{ s.pct }};"></div><div style="position:absolute;top:-5px;width:16px;height:16px;border-radius:8px;background:oklch(0.995 0.003 60);border:2px solid oklch(0.42 0.07 185);left:{{ s.pct }};transform:translateX(-8px);"></div></div>
+            </div>
+          </sc-for>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);margin-bottom:8px;">Was your deposit returned?</div>
+            <div style="display:flex;gap:10px;">
+              <div style="flex:1;text-align:center;padding:11px;border-radius:10px;border:2px solid oklch(0.42 0.07 185);background:oklch(0.94 0.03 185);font-size:13.5px;font-weight:700;color:oklch(0.3 0.06 185);">Yes</div>
+              <div style="flex:1;text-align:center;padding:11px;border-radius:10px;border:1px solid oklch(0.88 0.01 50);font-size:13.5px;font-weight:600;color:oklch(0.52 0.012 50);">No</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">MONTHS LIVED THERE</div>
+            <div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.22 0.015 50);width:100px;">8 months</div>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">YOUR REVIEW</div>
+            <div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:13.5px;color:oklch(0.68 0.01 50);height:78px;line-height:1.5;">Tell the next tenant what it was really like — caretaker responsiveness, water schedule, noise, anything you wish you'd known…</div>
+          </div>
+        </div>
+        <div style="flex:0 0 auto;padding:16px 22px 24px;"><div style="background:oklch(0.42 0.07 185);color:white;border-radius:12px;padding:15px;text-align:center;font-size:15px;font-weight:700;">Submit review</div></div>
+      </div>
+    </div>
+
+    <!-- SUBSCRIPTION -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Subscription / Plan">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Subscription / plan</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="padding:8px 22px 0;flex:0 0 auto;">
+          <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:18px;color:oklch(0.22 0.015 50);">‹</div><div style="font-size:17px;font-weight:800;color:oklch(0.22 0.015 50);">Subscription</div></div>
+        </div>
+        <div style="flex:1;padding:20px 22px;overflow-y:auto;">
+          <div style="border:2px solid oklch(0.42 0.07 185);border-radius:18px;padding:20px;background:oklch(0.94 0.03 185);">
+            <div style="font-size:13px;font-weight:700;color:oklch(0.3 0.06 185);text-transform:uppercase;letter-spacing:0.04em;">Nyumba Finder plan</div>
+            <div style="font-size:30px;font-weight:800;color:oklch(0.22 0.015 50);margin-top:6px;">KES 250<span style="font-size:14px;font-weight:600;color:oklch(0.52 0.012 50);">/month</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px;">
+              <div style="font-size:13px;color:oklch(0.32 0.012 50);">— Caretaker &amp; agency numbers on every listing</div>
+              <div style="font-size:13px;color:oklch(0.32 0.012 50);">— Cancel anytime</div>
+              <div style="font-size:13px;color:oklch(0.32 0.012 50);">— Supports tenants who post honestly</div>
+            </div>
+          </div>
+          <div style="margin-top:22px;">
+            <div style="font-size:12px;font-weight:700;color:oklch(0.52 0.012 50);margin-bottom:6px;">M-PESA PHONE NUMBER</div>
+            <div style="border:1px solid oklch(0.88 0.01 50);background:oklch(0.995 0.003 60);border-radius:10px;padding:13px 14px;font-size:14px;color:oklch(0.22 0.015 50);">0712 345 678</div>
+          </div>
+          <div onClick="{{ payMpesa }}" style="margin-top:16px;background:oklch(0.42 0.07 185);color:white;border-radius:12px;padding:15px;text-align:center;font-size:15px;font-weight:700;cursor:pointer;">{{ payButtonLabel }}</div>
+          <sc-if value="{{ showMpesaStatus }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;border-radius:10px;background:{{ step1Color }};display:flex;align-items:center;justify-content:center;flex:0 0 auto;"><div style="width:8px;height:8px;border-radius:4px;background:white;"></div></div><div style="font-size:13.5px;font-weight:600;color:{{ step1TextColor }};">STK push sent to your phone</div></div>
+              <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;border-radius:10px;background:{{ step2Color }};display:flex;align-items:center;justify-content:center;flex:0 0 auto;"><div style="width:8px;height:8px;border-radius:4px;background:white;"></div></div><div style="font-size:13.5px;font-weight:600;color:{{ step2TextColor }};">Confirm on your phone</div></div>
+              <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;border-radius:10px;background:{{ step3Color }};display:flex;align-items:center;justify-content:center;flex:0 0 auto;"><div style="width:8px;height:8px;border-radius:4px;background:white;"></div></div><div style="font-size:13.5px;font-weight:600;color:{{ step3TextColor }};">Subscription active</div></div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;" data-screen-label="Profile">
+      <div style="font-size:13px;font-weight:700;color:oklch(0.52 0.012 50);">Profile</div>
+      <div style="width:360px;height:780px;background:oklch(0.975 0.006 60);border-radius:36px;border:1px solid oklch(0.88 0.01 50);box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative;display:flex;flex-direction:column;">
+        <div style="height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:13px;font-weight:700;color:oklch(0.22 0.015 50);flex:0 0 auto;"><span>9:41</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:16px;height:10px;display:flex;align-items:flex-end;gap:1px;"><div style="width:3px;height:4px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:6px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:8px;background:oklch(0.22 0.015 50);border-radius:1px;"></div><div style="width:3px;height:10px;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div><div style="width:18px;height:10px;border:1.5px solid oklch(0.22 0.015 50);border-radius:3px;padding:1px;box-sizing:border-box;"><div style="width:100%;height:100%;background:oklch(0.22 0.015 50);border-radius:1px;"></div></div></div></div>
+        <div style="flex:1;overflow-y:auto;padding:20px 22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:10px 0 20px;">
+            <div style="width:74px;height:74px;border-radius:37px;background:oklch(0.9 0.03 185);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:oklch(0.35 0.08 185);">WK</div>
+            <div style="font-size:19px;font-weight:800;color:oklch(0.22 0.015 50);">Wanjiku Kamau</div>
+            <div style="font-size:13px;color:oklch(0.52 0.012 50);">+254 712 345 678</div>
+          </div>
+          <div style="background:oklch(0.94 0.05 150);border-radius:14px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <div><div style="font-size:13.5px;font-weight:700;color:oklch(0.25 0.05 150);">Subscription active</div><div style="font-size:11.5px;color:oklch(0.4 0.05 150);margin-top:2px;">Renews 12 Nov 2026</div></div>
+            <div style="width:9px;height:9px;border-radius:5px;background:oklch(0.6 0.15 150);animation:livepulse 2s infinite;"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;margin-top:18px;">
+            <div style="padding:15px 4px;border-bottom:1px solid oklch(0.9 0.008 50);font-size:14.5px;color:oklch(0.22 0.015 50);font-weight:600;">Edit profile</div>
+            <div style="padding:15px 4px;border-bottom:1px solid oklch(0.9 0.008 50);font-size:14.5px;color:oklch(0.22 0.015 50);font-weight:600;">Payment history</div>
+            <div style="padding:15px 4px;border-bottom:1px solid oklch(0.9 0.008 50);font-size:14.5px;color:oklch(0.22 0.015 50);font-weight:600;">Help &amp; support</div>
+            <div style="padding:15px 4px;border-bottom:1px solid oklch(0.9 0.008 50);font-size:14.5px;color:oklch(0.22 0.015 50);font-weight:600;">Terms &amp; privacy</div>
+          </div>
+          <div style="margin-top:24px;text-align:center;font-size:14.5px;font-weight:700;color:oklch(0.55 0.16 25);padding:14px;">Sign out</div>
+        </div>
+        <div style="flex:0 0 auto;height:64px;border-top:1px solid oklch(0.9 0.008 50);display:flex;align-items:center;justify-content:space-around;background:oklch(0.995 0.003 60);">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:20px;height:20px;border-radius:5px;background:oklch(0.75 0.01 50);"></div><div style="font-size:10px;font-weight:600;color:oklch(0.68 0.01 50);">Home</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:20px;height:20px;border-radius:5px;background:oklch(0.75 0.01 50);"></div><div style="font-size:10px;font-weight:600;color:oklch(0.68 0.01 50);">Listings</div></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:20px;height:20px;border-radius:10px;background:oklch(0.42 0.07 185);"></div><div style="font-size:10px;font-weight:700;color:oklch(0.42 0.07 185);">Profile</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    subscribed: false,
+    listingStatus: 'empty',
+    mpesaStatus: 'idle',
+    savedIds: [],
+    detailSaved: false
+  };
+
+  toggleSubscribe = () => this.setState(s => ({ subscribed: !s.subscribed }));
+  toggleSave = (id) => this.setState(s => ({ savedIds: s.savedIds.includes(id) ? s.savedIds.filter(x => x !== id) : [...s.savedIds, id] }));
+  toggleDetailSaved = () => this.setState(s => ({ detailSaved: !s.detailSaved }));
+
+  setListingEmpty = () => this.setState({ listingStatus: 'empty' });
+  setListingOccupied = () => this.setState({ listingStatus: 'occupied' });
+
+  payMpesa = () => {
+    if (this.state.mpesaStatus !== 'idle') { this.setState({ mpesaStatus: 'idle' }); return; }
+    this.setState({ mpesaStatus: 'sent' });
+    setTimeout(() => this.setState({ mpesaStatus: 'confirm' }), 1400);
+    setTimeout(() => this.setState({ mpesaStatus: 'active' }), 2800);
+  };
+
+  renderVals() {
+    const teal = 'oklch(0.42 0.07 185)';
+    const green = 'oklch(0.6 0.15 150)';
+    const amber = 'oklch(0.68 0.14 70)';
+    const gray = 'oklch(0.65 0.01 50)';
+
+    const rawListings = [
+      { id: 0, title: 'Kilimani, 2-bed apartment', location: 'Kilimani', price: 'KES 45k/mo', beds: 2, availability: 'Available now', dotColor: green, isNew: true, photoBg: 'repeating-linear-gradient(45deg, oklch(0.85 0.03 70), oklch(0.85 0.03 70) 12px, oklch(0.8 0.035 70) 12px, oklch(0.8 0.035 70) 24px)' },
+      { id: 1, title: 'Kileleshwa, studio', location: 'Kileleshwa', price: 'KES 22k/mo', beds: 0, availability: 'Available from 1 Oct', dotColor: amber, isNew: false, photoBg: 'repeating-linear-gradient(45deg, oklch(0.85 0.03 185), oklch(0.85 0.03 185) 12px, oklch(0.8 0.035 185) 12px, oklch(0.8 0.035 185) 24px)' },
+      { id: 2, title: 'South B, 1-bed', location: 'South B', price: 'KES 18k/mo', beds: 1, availability: 'Occupied', dotColor: gray, isNew: false, photoBg: 'repeating-linear-gradient(45deg, oklch(0.85 0.02 150), oklch(0.85 0.02 150) 12px, oklch(0.8 0.025 150) 12px, oklch(0.8 0.025 150) 24px)' }
+    ];
+    const saved = this.state.savedIds;
+    const homeListings = rawListings.map(l => ({
+      ...l,
+      saved: saved.includes(l.id),
+      heartColor: saved.includes(l.id) ? 'oklch(0.55 0.16 25)' : 'oklch(0.995 0.003 60)',
+      heartBorder: saved.includes(l.id) ? 'oklch(0.55 0.16 25)' : 'oklch(0.5 0.01 50)',
+      toggleSave: () => this.toggleSave(l.id)
+    }));
+
+    const subRatings = [
+      { label: 'Caretaker', score: 4.2, pct: '84%' },
+      { label: 'Repairs', score: 3.8, pct: '76%' },
+      { label: 'Electricity', score: 3.5, pct: '70%' },
+      { label: 'Water', score: 4.6, pct: '92%' },
+      { label: 'Rent fairness', score: 4.0, pct: '80%' }
+    ];
+
+    const reviews = [
+      { initials: 'FC', name: 'Faith Chebet', months: '11 months', rating: 4.5, comment: 'Caretaker fixed a leaking tap within a day. Water pressure drops in the evenings but manageable. Fair rent for the area.', depositLabel: 'Deposit returned', depositBg: 'oklch(0.94 0.05 150)', depositColor: 'oklch(0.3 0.08 150)' },
+      { initials: 'BM', name: 'Brian Mwangi', months: '6 months', rating: 3.5, comment: 'Good location and quiet building. Took the agency almost three weeks to return part of the deposit after I moved out.', depositLabel: 'Deposit not returned in full', depositBg: 'oklch(0.94 0.05 25)', depositColor: 'oklch(0.4 0.1 25)' }
+    ];
+
+    const reviewSliders = [
+      { label: 'Caretaker', value: 4, pct: '80%' },
+      { label: 'Repairs', value: 4, pct: '80%' },
+      { label: 'Electricity', value: 3, pct: '60%' },
+      { label: 'Water', value: 5, pct: '100%' },
+      { label: 'Rent fairness', value: 4, pct: '80%' }
+    ];
+
+    const mp = this.state.mpesaStatus;
+    const stepColor = (active, done) => done ? green : active ? teal : 'oklch(0.85 0.01 50)';
+    const stepTextColor = (active, done) => (done || active) ? 'oklch(0.22 0.015 50)' : 'oklch(0.6 0.01 50)';
+    const payButtonLabel = mp === 'idle' ? 'Pay with M-Pesa' : mp === 'active' ? 'Paid — tap to reset demo' : 'Waiting for M-Pesa…';
+
+    return {
+      subscribed: this.state.subscribed,
+      notSubscribed: !this.state.subscribed,
+      toggleSubscribe: this.toggleSubscribe,
+      contactCardBg: this.state.subscribed ? 'oklch(0.94 0.05 150)' : 'oklch(0.995 0.003 60)',
+      contactCardBorder: this.state.subscribed ? 'oklch(0.8 0.06 150)' : 'oklch(0.9 0.008 50)',
+
+      homeListings,
+      detailSaved: this.state.detailSaved,
+      toggleDetailSaved: this.toggleDetailSaved,
+      detailHeartColor: this.state.detailSaved ? 'oklch(0.55 0.16 25)' : 'oklch(0.4 0.012 50)',
+      detailHeartOpacity: this.state.detailSaved ? 1 : 0.15,
+      subRatings,
+      reviews,
+      reviewSliders,
+
+      emptyTabBg: this.state.listingStatus === 'empty' ? teal : 'oklch(0.995 0.003 60)',
+      emptyTabColor: this.state.listingStatus === 'empty' ? 'white' : gray,
+      occupiedTabBg: this.state.listingStatus === 'occupied' ? teal : 'oklch(0.995 0.003 60)',
+      occupiedTabColor: this.state.listingStatus === 'occupied' ? 'white' : gray,
+      setListingEmpty: this.setListingEmpty,
+      setListingOccupied: this.setListingOccupied,
+      myListingUpdated: this.state.listingStatus === 'empty' ? 'just now' : 'just now — marked occupied',
+
+      payMpesa: this.payMpesa,
+      payButtonLabel,
+      showMpesaStatus: mp !== 'idle',
+      step1Color: stepColor(mp === 'sent', mp === 'confirm' || mp === 'active'),
+      step1TextColor: stepTextColor(mp === 'sent', mp === 'confirm' || mp === 'active'),
+      step2Color: stepColor(mp === 'confirm', mp === 'active'),
+      step2TextColor: stepTextColor(mp === 'confirm', mp === 'active'),
+      step3Color: stepColor(false, mp === 'active'),
+      step3TextColor: stepTextColor(false, mp === 'active')
+    };
+  }
+}
+</script>
+</body>
+</html>
