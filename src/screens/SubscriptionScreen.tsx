@@ -20,7 +20,10 @@ export default function SubscriptionScreen() {
   const [payState, setPayState] = useState<PayState>("idle");
 
   async function handlePay() {
-    if (!phone) return;
+    if (!phone.trim()) {
+      Alert.alert("Missing phone number", "Enter your M-Pesa phone number to continue.");
+      return;
+    }
     setPayState("stk_sent");
     try {
       const { checkoutRequestId } = await startMpesaPayment({ purpose: "subscription", phone });

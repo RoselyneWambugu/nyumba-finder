@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { colors, radii } from "@/theme";
 import type { AvailabilityStatus, ListingFilters } from "@/types";
@@ -30,6 +30,13 @@ export default function FilterBar({
   const [openSheet, setOpenSheet] = useState<FilterKey | null>(null);
   const [locationDraft, setLocationDraft] = useState(filters.location ?? "");
   const [maxPriceDraft, setMaxPriceDraft] = useState(filters.maxPrice ? String(filters.maxPrice) : "");
+
+  // Re-sync drafts to the live filter value whenever a sheet opens, since
+  // filters.location can also change from the search bar outside this component.
+  useEffect(() => {
+    if (openSheet === "location") setLocationDraft(filters.location ?? "");
+    if (openSheet === "price") setMaxPriceDraft(filters.maxPrice ? String(filters.maxPrice) : "");
+  }, [openSheet, filters.location, filters.maxPrice]);
 
   const chips: { key: FilterKey; label: string; active: boolean }[] = [
     { key: "location", label: "Location", active: Boolean(filters.location) },

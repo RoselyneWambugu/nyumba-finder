@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer, type NavigatorScreenParams } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useAuth } from "@/hooks/useAuth";
+import { colors } from "@/theme";
 
 import OnboardingScreen from "@/screens/OnboardingScreen";
 import AuthScreen from "@/screens/auth/AuthScreen";
@@ -36,9 +38,26 @@ export type TabParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<TabParamList>();
 
+const TAB_ICONS: Record<keyof TabParamList, keyof typeof Ionicons.glyphMap> = {
+  Search: "home",
+  AddListing: "add-circle",
+  MyListings: "list",
+  Subscription: "card",
+  Profile: "person"
+};
+
 function Tabs() {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarActiveTintColor: colors.accent,
+        tabBarInactiveTintColor: colors.inkTertiary,
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name={TAB_ICONS[route.name as keyof TabParamList]} color={color} size={size} />
+        )
+      })}
+    >
       <Tab.Screen name="Search" component={SearchScreen} options={{ title: "Home" }} />
       <Tab.Screen name="AddListing" component={AddListingScreen} options={{ title: "List a place" }} />
       <Tab.Screen name="MyListings" component={MyListingsScreen} options={{ title: "Listings" }} />

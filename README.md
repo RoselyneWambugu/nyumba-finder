@@ -52,11 +52,40 @@ supabase/
   `adaptive-icon.png`, `splash.png`, `favicon.png`) — a simple house pictogram, teal
   on cream. Fine for dev builds; swap for real branding before shipping.
 - **Verified**: `npx tsc --noEmit` is clean, the app bundles through Metro for both
-  Android and web targets (808 modules resolve), and the onboarding/auth screens
-  render correctly in a browser smoke test. Live network calls from this sandboxed
-  dev environment to Supabase are blocked by its egress policy (only the Supabase
-  MCP tooling can reach it here) — this is a constraint of the container, not the
-  app; it works normally from a real device or simulator on the internet.
+  Android and web targets, and the onboarding/auth screens render correctly in a
+  browser smoke test. Live network calls from this sandboxed dev environment to
+  Supabase are blocked by its egress policy (only the Supabase MCP tooling can
+  reach it here) — this is a constraint of the container, not the app; it works
+  normally from a real device or simulator on the internet.
+- **One manual fix still needed**: enable "Leaked password protection" in the
+  Supabase dashboard under Authentication → Policies → Password Security. No
+  tool available in this session can toggle it, and it can't be set via SQL.
+
+### Bug-fix pass (post-build review)
+
+Found and fixed while reviewing the whole app before handoff:
+
+- Listing detail and My Listings both rendered the *placeholder* graphic even for
+  listings with real uploaded photos — neither screen actually read `listing_photos[].url`.
+- Realtime was never enabled for `listings` on the Supabase side (tables aren't in
+  the realtime publication by default), so the "live availability updates without
+  a manual refresh" subscription in `useListings` silently did nothing. Fixed with
+  `0005_enable_realtime_listings.sql`.
+- Sign-up gave zero feedback when Supabase requires email confirmation (no session
+  comes back) — the screen just sat there looking broken. Now shows a "check your
+  email" message and switches to the Log in tab.
+- Add Listing had no validation: an empty rent field silently became `KES 0`
+  (`Number("")` is `0`, not `NaN`), and a listing could publish with a blank title.
+  Now validates title/location/price/deposit before continuing, and validates the
+  move-out date format for "available soon" listings.
+- Subscription and Send-a-Tip silently did nothing if you tapped Pay/Send with an
+  empty phone number or invalid amount — now shows a clear alert instead.
+- The Location/Price filter sheets in the search filter bar could show a stale
+  value if you typed directly into the main search bar first, then opened the
+  sheet — its draft state wasn't re-synced on open.
+- Bottom tab bar had no icons (React Navigation's default is a title-only tab) —
+  added icons matching the design using `@expo/vector-icons` (already bundled
+  with Expo, no new dependency).
 
 ## Setup
 

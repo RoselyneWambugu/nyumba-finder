@@ -89,8 +89,57 @@ export default function AddListingScreen() {
     }
   }
 
+  function validateStep1(): string | null {
+    if (!form.title.trim()) return "Add a listing title.";
+    if (!form.location.trim()) return "Add the location or estate.";
+    const price = Number(form.price);
+    if (!form.price.trim() || Number.isNaN(price) || price <= 0) return "Enter a valid rent amount.";
+    if (form.deposit.trim() && (Number.isNaN(Number(form.deposit)) || Number(form.deposit) < 0)) {
+      return "Enter a valid deposit amount, or leave it blank.";
+    }
+    return null;
+  }
+
+  function validateStep3(): string | null {
+    if (form.availability !== "available_soon") return null;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(form.availableFrom.trim())) {
+      return "Enter the move-out date as YYYY-MM-DD (e.g. 2026-10-01).";
+    }
+    return null;
+  }
+
+  function handleContinue() {
+    if (step === 1) {
+      const error = validateStep1();
+      if (error) {
+        Alert.alert("Missing info", error);
+        return;
+      }
+    }
+    if (step === 3) {
+      const error = validateStep3();
+      if (error) {
+        Alert.alert("Check the date", error);
+        return;
+      }
+    }
+    setStep(step + 1);
+  }
+
   async function handlePublish() {
     if (!user) return;
+    const step1Error = validateStep1();
+    if (step1Error) {
+      Alert.alert("Missing info", step1Error);
+      setStep(1);
+      return;
+    }
+    const step3Error = validateStep3();
+    if (step3Error) {
+      Alert.alert("Check the date", step3Error);
+      setStep(3);
+      return;
+    }
     setPublishing(true);
     try {
       const { data: listing, error: listingError } = await supabase
@@ -253,7 +302,7 @@ export default function AddListingScreen() {
         )}
         <TouchableOpacity
           style={styles.continueButton}
-          onPress={() => (step < TOTAL_STEPS ? setStep(step + 1) : handlePublish())}
+          onPress={() => (step < TOTAL_STEPS ? handleContinue() : handlePublish())}
           disabled={publishing}
         >
           <Text style={styles.continueButtonText}>

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import PlaceholderPhoto from "@/components/PlaceholderPhoto";
 import { supabase } from "@/config/supabase";
 import { useAuth } from "@/hooks/useAuth";
@@ -59,7 +59,11 @@ export default function MyListingsScreen() {
         ListEmptyComponent={<Text style={styles.empty}>You haven't posted a listing yet.</Text>}
         renderItem={({ item }) => (
           <View style={styles.card}>
-            <PlaceholderPhoto seed={item.id} height={140} />
+            {item.listing_photos?.[0]?.url ? (
+              <Image source={{ uri: item.listing_photos[0].url }} style={styles.photo} />
+            ) : (
+              <PlaceholderPhoto seed={item.id} height={140} />
+            )}
             <View style={styles.body}>
               <Text style={styles.title}>{item.title}</Text>
               <Text style={styles.meta}>Last updated {timeAgo(item.updated_at)}</Text>
@@ -114,6 +118,7 @@ const styles = StyleSheet.create({
     borderColor: colors.borderCard,
     marginBottom: 16
   },
+  photo: { width: "100%", height: 140 },
   body: { padding: 14 },
   title: { fontSize: 16, fontWeight: "800", color: colors.inkPrimary },
   meta: { fontSize: 12, color: colors.inkTertiary, marginTop: 2, marginBottom: 12 },

@@ -25,10 +25,28 @@ export default function AuthScreen() {
   const { signUp, signIn } = useAuth();
 
   async function handleSubmit() {
+    if (!email.trim() || !password) {
+      Alert.alert("Missing info", "Enter your email and password to continue.");
+      return;
+    }
+    if (mode === "signup" && !fullName.trim()) {
+      Alert.alert("Missing info", "Enter your full name to continue.");
+      return;
+    }
+
     setSubmitting(true);
     try {
       if (mode === "signup") {
-        await signUp(email.trim(), password, fullName.trim(), phone.trim());
+        const fullPhone = phone.trim() ? `254${phone.replace(/\D/g, "").replace(/^0+/, "")}` : "";
+        const result = await signUp(email.trim(), password, fullName.trim(), fullPhone);
+        if (!result.session) {
+          // Email confirmation is on for this project, so no session comes back yet.
+          Alert.alert(
+            "Check your email",
+            "We've sent a confirmation link to your email. Confirm it, then log in below."
+          );
+          setMode("login");
+        }
       } else {
         await signIn(email.trim(), password);
       }

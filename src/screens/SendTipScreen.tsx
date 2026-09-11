@@ -21,7 +21,14 @@ export default function SendTipScreen() {
   const activeAmount = customAmount ? Number(customAmount) : amount;
 
   async function handleSend() {
-    if (!phone || !activeAmount) return;
+    if (!phone.trim()) {
+      Alert.alert("Missing phone number", "Enter the M-Pesa phone number to send the tip from.");
+      return;
+    }
+    if (!activeAmount || Number.isNaN(activeAmount) || activeAmount <= 0) {
+      Alert.alert("Invalid amount", "Enter a valid tip amount.");
+      return;
+    }
     setStatus("sending");
     try {
       const { checkoutRequestId } = await startMpesaPayment({

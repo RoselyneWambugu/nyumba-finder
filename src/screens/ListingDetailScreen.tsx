@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Dimensions,
   FlatList,
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -127,7 +128,13 @@ export default function ListingDetailScreen() {
             pagingEnabled
             showsHorizontalScrollIndicator={false}
             onMomentumScrollEnd={(e) => setPhotoIndex(Math.round(e.nativeEvent.contentOffset.x / width))}
-            renderItem={() => <PlaceholderPhoto seed={listing.id} height={230} />}
+            renderItem={({ item }) =>
+              item.url ? (
+                <Image source={{ uri: item.url }} style={{ width, height: 230 }} />
+              ) : (
+                <PlaceholderPhoto seed={listing.id} height={230} />
+              )
+            }
           />
         ) : (
           <PlaceholderPhoto seed={listing.id} height={230} />
