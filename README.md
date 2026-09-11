@@ -33,15 +33,34 @@ supabase/
   functions/                 # mpesa-stk-push, mpesa-callback edge functions
 ```
 
+## Status
+
+- **Supabase project**: live (`nyumba-finder`, ref `htltyfuidmdmblpztsqa`). All four
+  migrations are applied and `supabase/seed.sql` has been run, so the project has 3
+  demo users, 5 listings across Kilimani/Kileleshwa/Roysambu/Nyeri/Karen (one of
+  each availability state), contacts, and a few reviews. `.env` in this repo (not
+  committed) already points at it.
+- **M-Pesa**: not wired up yet — the Daraja sandbox registration was flaky when last
+  tried. `mpesa-stk-push` / `mpesa-callback` are written but not deployed, so the
+  Subscription and Send-a-Tip screens won't complete a real payment until that's
+  redone (see below).
+- **Listing photos**: still placeholders. The 5 seeded listings have no photos yet —
+  real photos need to go through the Storage API (RLS-gated by uploader), which
+  needs either a real user session or the project's service-role key.
+
 ## Setup
 
 ### 1. Supabase project
 
+Already provisioned for this repo (see Status above). To point at a different
+project instead:
+
 1. Create a project at [supabase.com](https://supabase.com).
-2. Apply the schema: `supabase link --project-ref <ref>` then `supabase db push`,
-   or paste `supabase/migrations/0001_init.sql` and `0002_storage.sql` into the
-   SQL editor in order.
-3. Copy `.env.example` to `.env` and fill in `SUPABASE_URL` / `SUPABASE_ANON_KEY`
+2. Apply the schema in order: `supabase/migrations/0001_init.sql` through
+   `0004_rls_performance_cleanup.sql` (`supabase link --project-ref <ref>` then
+   `supabase db push`, or paste each file into the SQL editor).
+3. Optionally run `supabase/seed.sql` for demo data.
+4. Copy `.env.example` to `.env` and fill in `SUPABASE_URL` / `SUPABASE_ANON_KEY`
    from Settings → API.
 
 ### 2. M-Pesa (Daraja) credentials
