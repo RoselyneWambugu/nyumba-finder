@@ -40,13 +40,23 @@ supabase/
   demo users, 5 listings across Kilimani/Kileleshwa/Roysambu/Nyeri/Karen (one of
   each availability state), contacts, and a few reviews. `.env` in this repo (not
   committed) already points at it.
-- **M-Pesa**: not wired up yet — the Daraja sandbox registration was flaky when last
-  tried. `mpesa-stk-push` / `mpesa-callback` are written but not deployed, so the
-  Subscription and Send-a-Tip screens won't complete a real payment until that's
-  redone (see below).
+- **M-Pesa**: both edge functions are deployed and ACTIVE on the live project, but
+  no Daraja credentials are set yet — the Safaricom developer portal wasn't loading
+  when last tried. Until `MPESA_CONSUMER_KEY` etc. are set as function secrets (see
+  below), the Subscription and Send-a-Tip screens will call a live endpoint that
+  fails cleanly rather than completing a real payment.
 - **Listing photos**: still placeholders. The 5 seeded listings have no photos yet —
   real photos need to go through the Storage API (RLS-gated by uploader), which
   needs either a real user session or the project's service-role key.
+- **App icon/splash**: generated placeholders in brand colors (`assets/icon.png`,
+  `adaptive-icon.png`, `splash.png`, `favicon.png`) — a simple house pictogram, teal
+  on cream. Fine for dev builds; swap for real branding before shipping.
+- **Verified**: `npx tsc --noEmit` is clean, the app bundles through Metro for both
+  Android and web targets (808 modules resolve), and the onboarding/auth screens
+  render correctly in a browser smoke test. Live network calls from this sandboxed
+  dev environment to Supabase are blocked by its egress policy (only the Supabase
+  MCP tooling can reach it here) — this is a constraint of the container, not the
+  app; it works normally from a real device or simulator on the internet.
 
 ## Setup
 
@@ -95,9 +105,6 @@ Then press `i`/`a` in the Expo CLI, or scan the QR code with Expo Go.
 
 ## Notes
 
-- `app.config.js` references `./assets/icon.png` for the app icon/splash, which doesn't
-  exist yet (`assets/` is empty) — add real icon/splash assets before a native build;
-  Metro bundling and `expo start` work fine without them in the meantime.
 - All listing photos are placeholders (`src/components/PlaceholderPhoto.tsx`) until
   real photo uploads are tested end-to-end against a live Supabase Storage bucket.
 - The subscription/tip payment flow polls `mpesa_transactions` for the callback

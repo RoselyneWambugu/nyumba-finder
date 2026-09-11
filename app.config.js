@@ -9,7 +9,9 @@ module.exports = {
     icon: "./assets/icon.png",
     userInterfaceStyle: "automatic",
     splash: {
-      backgroundColor: "#0F766E"
+      image: "./assets/splash.png",
+      resizeMode: "contain",
+      backgroundColor: "#FAF6F3"
     },
     assetBundlePatterns: ["**/*"],
     ios: {
@@ -18,13 +20,15 @@ module.exports = {
     },
     android: {
       adaptiveIcon: {
-        backgroundColor: "#0F766E"
+        foregroundImage: "./assets/adaptive-icon.png",
+        backgroundColor: "#0C5952"
       },
       package: "com.nyumbafinder.app",
       permissions: ["CAMERA", "READ_EXTERNAL_STORAGE"]
     },
     web: {
-      bundler: "metro"
+      bundler: "metro",
+      favicon: "./assets/favicon.png"
     },
     extra: {
       supabaseUrl: process.env.SUPABASE_URL,
