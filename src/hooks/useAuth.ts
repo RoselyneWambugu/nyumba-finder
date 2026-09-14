@@ -7,10 +7,18 @@ export function useAuth() {
   const [initializing, setInitializing] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session);
-      setInitializing(false);
-    });
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        setSession(data.session);
+      })
+      .catch((err) => {
+        console.warn("[useAuth] getSession failed, starting signed out", err);
+        setSession(null);
+      })
+      .finally(() => {
+        setInitializing(false);
+      });
 
     const { data: subscription } = supabase.auth.onAuthStateChange((_event, newSession) => {
       setSession(newSession);

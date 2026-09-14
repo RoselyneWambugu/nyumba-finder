@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer, type NavigatorScreenParams } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useAuth } from "@/hooks/useAuth";
+import { safeStorage } from "@/lib/safeStorage";
 import { colors } from "@/theme";
 
 import OnboardingScreen from "@/screens/OnboardingScreen";
@@ -72,7 +72,13 @@ export default function RootNavigator() {
   const [hasOnboarded, setHasOnboarded] = useState<boolean | null>(null);
 
   useEffect(() => {
-    AsyncStorage.getItem(ONBOARDING_KEY).then((value) => setHasOnboarded(value === "true"));
+    safeStorage
+      .getItem(ONBOARDING_KEY)
+      .then((value) => setHasOnboarded(value === "true"))
+      .catch((err) => {
+        console.warn("[RootNavigator] reading onboarding flag failed, defaulting to not onboarded", err);
+        setHasOnboarded(false);
+      });
   }, []);
 
   if (initializing || hasOnboarded === null) return null;
@@ -81,7 +87,7 @@ export default function RootNavigator() {
     return (
       <OnboardingScreen
         onDone={() => {
-          AsyncStorage.setItem(ONBOARDING_KEY, "true");
+          safeStorage.setItem(ONBOARDING_KEY, "true").catch(() => {});
           setHasOnboarded(true);
         }}
       />
