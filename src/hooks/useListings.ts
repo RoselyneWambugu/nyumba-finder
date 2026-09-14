@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { supabase } from "@/config/supabase";
 import type { ListingFilters, ListingWithPhotos } from "@/types";
 
@@ -41,22 +41,33 @@ export function useListings(filters: ListingFilters) {
     setLoading(false);
   }, [filters.location, filters.minPrice, filters.maxPrice, filters.bedrooms, filters.availability]);
 
+  // Re-fetch whenever the filters (and therefore fetchListings) change.
   useEffect(() => {
     fetchListings();
+  }, [fetchListings]);
 
-    // Live-update the list when any owner flips availability, so search results
-    // reflect "still empty / just occupied" without a manual refresh.
+  // Subscribe to live availability changes exactly once per mount, independent
+  // of filter changes. A ref keeps the callback pointed at the latest
+  // fetchListings without needing to tear down and resubscribe the channel —
+  // doing that on every filter change (e.g. every keystroke in the search bar)
+  // raced the channel's async unsubscribe and threw "cannot add postgres_changes
+  // callbacks ... after subscribe()". The random suffix also protects against
+  // React's dev-mode double-invoked effects colliding on the same channel name.
+  const fetchListingsRef = useRef(fetchListings);
+  fetchListingsRef.current = fetchListings;
+
+  useEffect(() => {
     const channel = supabase
-      .channel("listings-changes")
+      .channel(`listings-changes-${Math.random().toString(36).slice(2)}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "listings" }, () => {
-        fetchListings();
+        fetchListingsRef.current();
       })
       .subscribe();
 
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [fetchListings]);
+  }, []);
 
   return { listings, loading, error, refetch: fetchListings };
 }
