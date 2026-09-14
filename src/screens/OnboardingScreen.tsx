@@ -1,20 +1,22 @@
 import React, { useRef, useState } from "react";
-import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import PlaceholderPhoto from "@/components/PlaceholderPhoto";
+import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { colors, radii } from "@/theme";
 
 const { width } = Dimensions.get("window");
 
 const SLIDES = [
   {
+    image: require("../../assets/onboarding/slide-1.png"),
     title: "Real reviews from real tenants.",
     body: "No agent spin. Ratings on the caretaker, repairs, electricity and water come from people who actually lived there."
   },
   {
+    image: require("../../assets/onboarding/slide-2.png"),
     title: "Know before you move in.",
     body: "See if rent, deposits, water and power have been fair — and whether the unit is actually free right now."
   },
   {
+    image: require("../../assets/onboarding/slide-3.png"),
     title: "List your old place in minutes.",
     body: "Moving out? Help the next tenant find it — and get paid nothing, it's free to post."
   }
@@ -35,9 +37,9 @@ export default function OnboardingScreen({ onDone }: { onDone: () => void }) {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         onMomentumScrollEnd={(e) => setIndex(Math.round(e.nativeEvent.contentOffset.x / width))}
-        renderItem={({ item, index: i }) => (
+        renderItem={({ item }) => (
           <View style={[styles.slide, { width }]}>
-            <PlaceholderPhoto seed={`onboarding-${i}`} height={460} label="" />
+            <Image source={item.image} style={styles.image} resizeMode="cover" />
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.body}>{item.body}</Text>
           </View>
@@ -64,6 +66,7 @@ export default function OnboardingScreen({ onDone }: { onDone: () => void }) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.bgScreen },
   slide: { paddingHorizontal: 24 },
+  image: { width: "100%", height: 460, borderRadius: radii.card },
   title: { fontSize: 24, fontWeight: "800", color: colors.inkPrimary, marginTop: 28 },
   body: { fontSize: 14, color: colors.inkSecondary, marginTop: 10, lineHeight: 20 },
   footer: { paddingHorizontal: 24, paddingBottom: 40, paddingTop: 12, alignItems: "center" },
