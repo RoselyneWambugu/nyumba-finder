@@ -28,6 +28,8 @@ export default function MyListingsScreen() {
       .from("listings")
       .select("*, listing_photos(*)")
       .eq("owner_id", user.id)
+      // Hide abandoned drafts from a publish attempt that never finished.
+      .neq("availability_status", "draft")
       .order("updated_at", { ascending: false });
     setListings((data as unknown as ListingWithPhotos[]) ?? []);
   }, [user]);

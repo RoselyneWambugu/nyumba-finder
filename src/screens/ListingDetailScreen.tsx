@@ -184,7 +184,8 @@ export default function ListingDetailScreen() {
         </View>
 
         <View style={styles.availabilityCard}>
-          <AvailabilityBadge status={listing.availability_status} />
+          {/* Drafts are unreachable here — useListings excludes them and MyListingsScreen filters them out. */}
+          <AvailabilityBadge status={listing.availability_status as Exclude<typeof listing.availability_status, "draft">} />
           <Text style={styles.updatedText}>
             Updated {new Date(listing.updated_at).toLocaleDateString()} by the poster
           </Text>

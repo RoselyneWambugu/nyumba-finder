@@ -40,7 +40,9 @@ export default function AvailabilityBadge({
   status,
   size = "md"
 }: {
-  status: AvailabilityStatus;
+  // 'draft' listings are hidden by RLS/UI filtering before anything renders
+  // this badge, so it's excluded here rather than given a dummy color entry.
+  status: Exclude<AvailabilityStatus, "draft">;
   size?: "sm" | "md";
 }) {
   const { fg, tint, label } = availabilityColors[status];

@@ -74,6 +74,9 @@ export default function AddListingScreen() {
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(initialForm);
   const [publishing, setPublishing] = useState(false);
+  // Set once the listing row exists, so retrying after a partial failure
+  // resumes the same draft instead of inserting a duplicate.
+  const [draftListingId, setDraftListingId] = useState<string | null>(null);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((f) => ({ ...f, [key]: value }));
@@ -142,62 +145,85 @@ export default function AddListingScreen() {
     }
     setPublishing(true);
     try {
-      const { data: listing, error: listingError } = await supabase
-        .from("listings")
-        .insert({
-          owner_id: user.id,
-          title: form.title,
-          location_text: form.location,
-          price_kes: Number(form.price),
-          deposit_kes: form.deposit ? Number(form.deposit) : null,
-          bedrooms: form.bedrooms,
-          bathrooms: form.bathrooms,
-          availability_status: form.availability,
-          available_from: form.availableFrom || null
-        })
-        .select()
-        .single();
-      if (listingError) throw listingError;
+      let listingId = draftListingId;
+      if (!listingId) {
+        // Inserted as 'draft' (hidden from the public) so a failure in any
+        // later step leaves nothing visible, instead of a half-complete
+        // listing. The last step below flips it to a real status.
+        const { data: listing, error: listingError } = await supabase
+          .from("listings")
+          .insert({
+            owner_id: user.id,
+            title: form.title,
+            location_text: form.location,
+            price_kes: Number(form.price),
+            deposit_kes: form.deposit ? Number(form.deposit) : null,
+            bedrooms: form.bedrooms,
+            bathrooms: form.bathrooms,
+            availability_status: "draft",
+            available_from: form.availableFrom || null
+          })
+          .select()
+          .single();
+        if (listingError) throw listingError;
+        listingId = listing.id;
+        setDraftListingId(listingId);
+      }
 
       for (let i = 0; i < form.photos.length; i++) {
         const uri = form.photos[i];
         const fileExt = uri.split(".").pop() ?? "jpg";
-        const path = `${user.id}/${listing.id}/${i}.${fileExt}`;
+        const path = `${user.id}/${listingId}/${i}.${fileExt}`;
         const response = await fetch(uri);
         const blob = await response.blob();
+        // upsert: true + an upsert below make this loop safe to re-run from
+        // the start on retry instead of needing to track which photos already
+        // made it through.
         const { error: uploadError } = await supabase.storage.from("listing-photos").upload(path, blob, {
-          contentType: blob.type || "image/jpeg"
+          contentType: blob.type || "image/jpeg",
+          upsert: true
         });
         if (uploadError) throw uploadError;
 
         const { data: publicUrlData } = supabase.storage.from("listing-photos").getPublicUrl(path);
-        await supabase.from("listing_photos").insert({
-          listing_id: listing.id,
-          url: publicUrlData.publicUrl,
-          position: i
-        });
+        const { error: photoRowError } = await supabase
+          .from("listing_photos")
+          .upsert(
+            { listing_id: listingId, url: publicUrlData.publicUrl, position: i },
+            { onConflict: "listing_id,position" }
+          );
+        if (photoRowError) throw photoRowError;
       }
 
-      await supabase.from("listing_contacts").insert({
-        listing_id: listing.id,
+      const { error: contactsError } = await supabase.from("listing_contacts").upsert({
+        listing_id: listingId,
         caretaker_name: form.caretakerName || null,
         caretaker_phone: form.caretakerPhone || null,
         agency_name: form.agencyName || null,
         agency_phone: form.agencyPhone || null
       });
+      if (contactsError) throw contactsError;
 
-      await supabase.from("availability_updates").insert({
-        listing_id: listing.id,
+      // Last step: flips the listing out of 'draft' via the
+      // apply_availability_update trigger. Reaching this on a retry means
+      // every earlier step already succeeded.
+      const { error: availabilityError } = await supabase.from("availability_updates").insert({
+        listing_id: listingId,
         status: form.availability,
         updated_by: user.id
       });
+      if (availabilityError) throw availabilityError;
 
       Alert.alert("Listing published", "Thanks for helping the next tenant!");
       setForm(initialForm);
+      setDraftListingId(null);
       setStep(1);
       navigation.navigate("Tabs", { screen: "Search" });
     } catch (err) {
-      Alert.alert("Couldn't publish listing", err instanceof Error ? err.message : String(err));
+      Alert.alert(
+        "Couldn't publish listing",
+        `${err instanceof Error ? err.message : String(err)}\n\nNothing was lost — tap Publish again to retry.`
+      );
     } finally {
       setPublishing(false);
     }

@@ -2,7 +2,7 @@
 // Once the project is provisioned, regenerate with:
 //   supabase gen types typescript --project-id <ref> > src/types/database.ts
 
-export type AvailabilityStatus = "available" | "available_soon" | "occupied";
+export type AvailabilityStatus = "available" | "available_soon" | "occupied" | "draft";
 export type SubscriptionStatus = "pending" | "active" | "expired";
 export type PaymentStatus = "pending" | "success" | "failed";
 export type MpesaPurpose = "subscription" | "tip";

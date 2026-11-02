@@ -47,7 +47,8 @@ export default function ListingCard({
         </Pressable>
 
         <View style={styles.availabilityOverlay}>
-          <AvailabilityBadge status={listing.availability_status} size="sm" />
+          {/* Draft listings never reach here — hidden by RLS and by every list query. */}
+          <AvailabilityBadge status={listing.availability_status as Exclude<typeof listing.availability_status, "draft">} size="sm" />
         </View>
       </View>
 

@@ -14,6 +14,10 @@ export function useListings(filters: ListingFilters) {
     let query = supabase
       .from("listings")
       .select("*, listing_photos(*)")
+      // RLS lets an owner see their own drafts (so a failed publish can be
+      // resumed), but this is the public discovery feed — never surface one
+      // here, including the viewer's own.
+      .neq("availability_status", "draft")
       .order("created_at", { ascending: false });
 
     if (filters.location) {
