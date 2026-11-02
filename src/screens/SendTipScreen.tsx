@@ -16,7 +16,10 @@ export default function SendTipScreen() {
   const [amount, setAmount] = useState<number>(PRESETS[1]);
   const [customAmount, setCustomAmount] = useState("");
   const [phone, setPhone] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "timed_out" | "failed">("idle");
+  // Kept so "Check again" can re-poll the same transaction after a timeout,
+  // without starting a brand new STK push.
+  const [pendingCheckoutId, setPendingCheckoutId] = useState<string | null>(null);
 
   const activeAmount = customAmount ? Number(customAmount) : amount;
 
@@ -29,6 +32,21 @@ export default function SendTipScreen() {
       Alert.alert("Invalid amount", "Enter a valid tip amount.");
       return;
     }
+    if (status === "timed_out") {
+      Alert.alert(
+        "Still waiting on the last tip",
+        "We haven't heard back from M-Pesa yet, so it may still succeed. Sending again now could charge you twice. Tap \"Check again\" instead, or confirm you want to send again.",
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Send again anyway", style: "destructive", onPress: () => void sendTip() }
+        ]
+      );
+      return;
+    }
+    await sendTip();
+  }
+
+  async function sendTip() {
     setStatus("sending");
     try {
       const { checkoutRequestId } = await startMpesaPayment({
@@ -37,6 +55,7 @@ export default function SendTipScreen() {
         amount: activeAmount,
         listingId
       });
+      setPendingCheckoutId(checkoutRequestId);
       setStatus("sent");
 
       for (let i = 0; i < 10; i++) {
@@ -52,9 +71,24 @@ export default function SendTipScreen() {
           return;
         }
       }
+      // M-Pesa hasn't actually told us this failed -- it may still resolve.
+      setStatus("timed_out");
     } catch (err) {
       setStatus("failed");
       Alert.alert("Couldn't send tip", err instanceof Error ? err.message : String(err));
+    }
+  }
+
+  async function checkAgain() {
+    if (!pendingCheckoutId) return;
+    const result = await pollPaymentStatus(pendingCheckoutId);
+    if (result === "success") {
+      Alert.alert("Tip sent!", `Thanks — your KES ${activeAmount} tip is on its way to ${posterName}.`);
+      navigation.goBack();
+    } else if (result === "failed") {
+      setStatus("failed");
+    } else {
+      Alert.alert("Still processing", "M-Pesa hasn't confirmed this payment yet. Check again in a moment.");
     }
   }
 
@@ -102,12 +136,26 @@ export default function SendTipScreen() {
       <Text style={styles.label}>M-Pesa phone number</Text>
       <TextInput style={styles.input} placeholder="0712 345 678" keyboardType="phone-pad" value={phone} onChangeText={setPhone} />
 
-      <TouchableOpacity style={styles.sendButton} onPress={handleSend} disabled={status === "sending"}>
+      <TouchableOpacity
+        style={styles.sendButton}
+        onPress={handleSend}
+        disabled={status === "sending" || status === "sent"}
+      >
         <Text style={styles.sendButtonText}>
           {status === "sending" ? "Sending…" : status === "sent" ? "Confirm on your phone…" : `Send KES ${activeAmount || 0} tip`}
         </Text>
       </TouchableOpacity>
       {status === "failed" && <Text style={styles.failedText}>Payment didn't go through — try again.</Text>}
+      {status === "timed_out" && (
+        <View>
+          <Text style={styles.timedOutText}>
+            Still waiting to hear back from M-Pesa. This can take a minute — please don't send again yet.
+          </Text>
+          <TouchableOpacity style={styles.checkAgainButton} onPress={checkAgain}>
+            <Text style={styles.checkAgainButtonText}>Check again</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </ScrollView>
   );
 }
@@ -153,5 +201,15 @@ const styles = StyleSheet.create({
   },
   sendButton: { backgroundColor: colors.accent, borderRadius: 14, paddingVertical: 16, alignItems: "center", marginTop: 26 },
   sendButtonText: { color: "#fff", fontWeight: "800", fontSize: 15 },
-  failedText: { color: colors.red, textAlign: "center", marginTop: 12 }
+  failedText: { color: colors.red, textAlign: "center", marginTop: 12 },
+  timedOutText: { color: colors.inkSecondary, fontWeight: "600", lineHeight: 19, textAlign: "center", marginTop: 12 },
+  checkAgainButton: {
+    marginTop: 12,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    borderRadius: 12,
+    paddingVertical: 12,
+    alignItems: "center"
+  },
+  checkAgainButtonText: { color: colors.accent, fontWeight: "700" }
 });

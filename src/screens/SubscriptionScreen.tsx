@@ -5,7 +5,7 @@ import { useSubscription } from "@/hooks/useSubscription";
 import { startMpesaPayment, pollPaymentStatus } from "@/lib/mpesa";
 import { colors, radii } from "@/theme";
 
-type PayState = "idle" | "stk_sent" | "awaiting_confirmation" | "active" | "failed";
+type PayState = "idle" | "stk_sent" | "awaiting_confirmation" | "active" | "timed_out" | "failed";
 
 const STEPS: { key: PayState; label: string }[] = [
   { key: "stk_sent", label: "STK push sent" },
@@ -18,15 +18,34 @@ export default function SubscriptionScreen() {
   const { subscription, isActive, refresh } = useSubscription(user?.id);
   const [phone, setPhone] = useState("");
   const [payState, setPayState] = useState<PayState>("idle");
+  // Kept so "Check again" can re-poll the same transaction after a timeout,
+  // without starting a brand new STK push.
+  const [pendingCheckoutId, setPendingCheckoutId] = useState<string | null>(null);
 
   async function handlePay() {
     if (!phone.trim()) {
       Alert.alert("Missing phone number", "Enter your M-Pesa phone number to continue.");
       return;
     }
+    if (payState === "timed_out") {
+      Alert.alert(
+        "Still waiting on the last payment",
+        "We haven't heard back from M-Pesa yet, so it may still succeed. Starting a new payment now could charge you twice. Tap \"Check again\" instead, or confirm you want to pay again.",
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Pay again anyway", style: "destructive", onPress: () => void sendPayment() }
+        ]
+      );
+      return;
+    }
+    await sendPayment();
+  }
+
+  async function sendPayment() {
     setPayState("stk_sent");
     try {
       const { checkoutRequestId } = await startMpesaPayment({ purpose: "subscription", phone });
+      setPendingCheckoutId(checkoutRequestId);
       setPayState("awaiting_confirmation");
 
       for (let i = 0; i < 20; i++) {
@@ -42,10 +61,25 @@ export default function SubscriptionScreen() {
           return;
         }
       }
-      setPayState("failed");
+      // M-Pesa hasn't actually told us this failed -- it may still resolve.
+      // Showing "failed" here would invite a retry that double-charges.
+      setPayState("timed_out");
     } catch (err) {
       setPayState("failed");
       Alert.alert("Payment failed", err instanceof Error ? err.message : String(err));
+    }
+  }
+
+  async function checkAgain() {
+    if (!pendingCheckoutId) return;
+    const result = await pollPaymentStatus(pendingCheckoutId);
+    if (result === "success") {
+      setPayState("active");
+      await refresh();
+    } else if (result === "failed") {
+      setPayState("failed");
+    } else {
+      Alert.alert("Still processing", "M-Pesa hasn't confirmed this payment yet. Check again in a moment.");
     }
   }
 
@@ -89,11 +123,26 @@ export default function SubscriptionScreen() {
         <View style={styles.statusList}>
           {STEPS.map((step, i) => (
             <View key={step.key} style={styles.statusRow}>
-              <View style={[styles.statusDot, i <= stepIndex && payState !== "failed" && styles.statusDotDone]} />
+              <View
+                style={[
+                  styles.statusDot,
+                  i <= stepIndex && payState !== "failed" && payState !== "timed_out" && styles.statusDotDone
+                ]}
+              />
               <Text style={styles.statusLabel}>{step.label}</Text>
             </View>
           ))}
           {payState === "failed" && <Text style={styles.failedText}>Payment didn't complete — try again.</Text>}
+          {payState === "timed_out" && (
+            <View>
+              <Text style={styles.timedOutText}>
+                Still waiting to hear back from M-Pesa. This can take a minute — please don't pay again yet.
+              </Text>
+              <TouchableOpacity style={styles.checkAgainButton} onPress={checkAgain}>
+                <Text style={styles.checkAgainButtonText}>Check again</Text>
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
       )}
     </ScrollView>
@@ -146,5 +195,15 @@ const styles = StyleSheet.create({
   statusDot: { width: 12, height: 12, borderRadius: 6, backgroundColor: colors.grayTint },
   statusDotDone: { backgroundColor: colors.green },
   statusLabel: { fontSize: 14, color: colors.inkPrimary, fontWeight: "600" },
-  failedText: { color: colors.red, fontWeight: "600" }
+  failedText: { color: colors.red, fontWeight: "600" },
+  timedOutText: { color: colors.inkSecondary, fontWeight: "600", lineHeight: 19 },
+  checkAgainButton: {
+    marginTop: 12,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    borderRadius: 12,
+    paddingVertical: 12,
+    alignItems: "center"
+  },
+  checkAgainButtonText: { color: colors.accent, fontWeight: "700" }
 });
